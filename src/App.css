@@ -1,38 +1,223 @@
-.App {
+/* Import Modern Professional Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:italic,wght@600;800&family=Poppins:wght@300;400;600&display=swap');
+
+/* Basic Resets & Typography */
+body { 
+  margin: 0; 
+  font-family: 'Poppins', sans-serif; 
+  background: #f8f9fa; 
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  background: white; 
+  padding: 20px 10%; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo { 
+  font-size: 28px; 
+  font-weight: 800; 
+  color: #d90429; 
+  letter-spacing: -1px; 
+}
+
+.nav-links { 
+  list-style: none; 
+  display: flex; 
+  gap: 25px; 
+  align-items: center;
+}
+
+.nav-links a { 
+  text-decoration: none; 
+  color: #333; 
+  font-weight: 500; 
+  transition: 0.3s;
+}
+
+.nav-links a:hover { 
+  color: #d90429; 
+}
+
+.logout-link { 
+  background: none; 
+  border: none; 
+  color: #d90429; 
+  cursor: pointer; 
+  font-weight: 600; 
+  font-family: 'Poppins', sans-serif;
+}
+
+/* PAGE WRAPPER */
+.page-wrapper {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+/* BIG SPLIT LAYOUT */
+.split-layout {
+  display: flex;
+  align-items: stretch; /* Ensures both sides are the same height */
+  width: 100%;
+  max-width: 1100px;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* FORM SIDE (LEFT) */
+.form-card {
+  flex: 1.2; 
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-card h2 { 
+  color: #d90429; 
+  font-size: 36px; 
+  margin: 0 0 20px 0; 
+  font-weight: 700;
+}
+
+.form-card label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* SIDE QUOTE BOX (RIGHT) */
+.side-quote-box {
+  flex: 1;
+  background: linear-gradient(135deg, #d90429 0%, #8d021f 100%);
+  color: white;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.side-quote-box p {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-style: italic;
+  line-height: 1.3;
+  margin: 0;
+  z-index: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Decorative Large Quote Mark */
+.side-quote-box::before {
+  content: "“";
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  font-size: 150px;
+  color: rgba(255, 255, 255, 0.1);
+  font-family: 'Playfair Display', serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* FORM ELEMENTS */
+.form-card input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 25px;
+  border: 1.5px solid #eee;
+  border-radius: 12px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.form-card input:focus {
+  border-color: #d90429;
+  outline: none;
+  background: #fffafa;
+  box-shadow: 0 0 0 4px rgba(217, 4, 41, 0.05);
+}
+
+/* BUTTONS */
+.primary-btn {
+  background: #d90429;
   color: white;
+  border: none;
+  padding: 18px 30px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.primary-btn:hover {
+  background: #ef233c;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(217, 4, 41, 0.2);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.secondary-btn {
+  background: white;
+  color: #d90429;
+  border: 2px solid #d90429;
+  padding: 16px 30px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.secondary-btn:hover {
+  background: #d90429;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 950px) {
+  .split-layout {
+    flex-direction: column;
+    max-width: 500px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .side-quote-box {
+    order: -1; /* Quote box appears on top for mobile */
+    padding: 40px;
+  }
+
+  .form-card {
+    padding: 40px;
+  }
+
+  .navbar {
+    padding: 20px 5%;
   }
 }
